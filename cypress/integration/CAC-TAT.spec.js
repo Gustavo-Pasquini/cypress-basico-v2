@@ -427,8 +427,10 @@ describe.only('Central de Atendimento ao Cliente - Aula 07 (Lidando com links qu
 
 });
 
+
 // Central de Atendimento ao Cliente - Aula 08 (Simulando as dimensões de um dispositivo móvel):
 // Ensina como sobrescrever um viewport com 'npx cypress open/run --config viewportWidth=370,viewportHeight=660'
+
 
 //Central de Atendimento ao Cliente - Aula 09 (Documentação do projeto de testes automatizados):
 // - Breve descrição do que se trata o projeto;
