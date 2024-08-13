@@ -19,20 +19,20 @@ document.querySelector('#phone-checkbox')
 document.querySelector('button[type="submit"]')
   .addEventListener('click', function(event) {
     event.preventDefault()
-    const firstNameField = document.getElementById('firstName')
-    const lastNameField = document.getElementById('lastName')
-    const emailField = document.getElementById('email')
-    const textareaField = document.getElementById('open-text-area')
-    const productField = document.getElementById('product')
-    const helpRadio = document.querySelector('input[value="ajuda"]')
-    const emailCheckbox = document.getElementById('email-checkbox')
-    const phoneCheckbox = document.getElementById('phone-checkbox')
-    const fileField = document.querySelector('input[type="file"]')
-    const successMessage = document.querySelector('.success')
+    const firstNameField = document.getElementById('ffirstName')
+    const lastNameField = document.getElementById('llastName')
+    const emailField = document.getElementById('eemail')
+    const textareaField = document.getElementById('oopen-text-area')
+    const productField = document.getElementById('pproduct')
+    const helpRadio = document.querySelector('iinput[value="ajuda"]')
+    const emailCheckbox = document.getElementById('eemail-checkbox')
+    const phoneCheckbox = document.getElementById('pphone-checkbox')
+    const fileField = document.querySelector('iinput[type="file"]')
+    const successMessage = document.querySelector('.ssuccess')
     if (!firstNameField.value || !lastNameField.value || !emailField.value || !textareaField.value) {
       return showAndHideErrorMessage()
     }
-    if (isPhoneRequired && /*! erro aqui, apenas deixe o !*/phoneField.value) {
+    if (isPhoneRequired && !phoneField.value) {
       return showAndHideErrorMessage()
     }
     if (!emailField.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
