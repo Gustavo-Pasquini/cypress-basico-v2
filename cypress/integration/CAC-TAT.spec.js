@@ -388,7 +388,7 @@ describe('Central de Atendimento ao Cliente - Aula 06 (Fazendo upload de arquivo
 
 });
 
-describe.only('Central de Atendimento ao Cliente - Aula 07 (Lidando com links que abrem em outras abas)', () => {
+describe('Central de Atendimento ao Cliente - Aula 07 (Lidando com links que abrem em outras abas)', () => {
 
   beforeEach(() => {
 
