@@ -32,7 +32,7 @@ document.querySelector('button[type="submit"]')
     if (!firstNameField.value || !lastNameField.value || !emailField.value || !textareaField.value) {
       return showAndHideErrorMessage()
     }
-    if (isPhoneRequired && !phoneField.value) {
+    if (isPhoneRequired && /*! erro aqui, apenas deixe o !*/phoneField.value) {
       return showAndHideErrorMessage()
     }
     if (!emailField.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
