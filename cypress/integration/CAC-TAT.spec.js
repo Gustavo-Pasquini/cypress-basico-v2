@@ -529,7 +529,7 @@ describe('Avançando no uso do Cypress', () => {
 
 });
 
-describe.only('Último Exercício', () => {
+describe('Último Exercício', () => {
 
   beforeEach(() => {
 
