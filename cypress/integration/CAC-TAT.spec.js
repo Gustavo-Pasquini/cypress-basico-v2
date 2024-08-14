@@ -203,13 +203,10 @@ describe('Central de Atendimento ao Cliente - Aula 03 (Selecionando opções em 
   it('explicação', () => {
     
     cy.getAndSelect('#product', 'YouTube') //seleção pelo texto
-      cy.wait(2000)
 
     cy.getAndSelect('#product', 'mentoria') //seleção pelo value
-      cy.wait(2000)
 
     cy.getAndSelect('#product', 1) //seleção pelo índice
-      cy.wait(2000)
 
   });
 
@@ -439,3 +436,117 @@ describe('Central de Atendimento ao Cliente - Aula 07 (Lidando com links que abr
 // - Passos para rodar os testes;
 // - Qualquer outra informção que for pertinente.
 // Criado README.md.
+
+
+describe('Avançando no uso do Cypress', () => {
+
+  beforeEach(() => {
+
+    cy.visit('./src/index.html')
+
+});
+
+
+  it('Exibe mensagem por 3 segundos', () => {
+
+    cy.clock()
+    cy.fillMandatoryFieldsAndSubmit()
+    cy.get('.success')
+      .should('be.visible')
+    
+    cy.tick(3000)
+    cy.get('.success')
+      .should('not.be.visible')
+    
+  });
+
+  Cypress._.times(5, () => {  
+    it('Lodash - Times exercicio extra 01', () => {
+  
+      cy.get('a[href="privacy.html"]')
+        .invoke('removeAttr', 'target')
+        .click()
+  
+      cy.title()
+        .should('be.equal', 'Central de Atendimento ao Cliente TAT - Política de privacidade')
+  
+      cy.get('#title')
+        .should('have.text', 'CAC TAT - Política de privacidade')
+  
+    });
+  });
+
+    it('Invoke - exercício extra 01', () => {
+      
+      cy.get('.success')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .invoke('hide')
+        .should('not.be.visible')
+
+      cy.get('.error')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .invoke('hide')
+        .should('not.be.visible')
+
+    });
+
+    it('Invoke - exercício extra 02', () => {
+
+      const longText = Cypress._.repeat('Texto Longo ', 100)
+      
+      cy.get('#open-text-area')
+        .invoke('text', 'Escrevendo pelo invoke')
+        .should('have.text', 'Escrevendo pelo invoke')
+        .clear()
+
+      cy.get('#open-text-area')
+        .invoke('val', 'Escrevendo pelo invoke alterando o value')
+        .should('have.value', 'Escrevendo pelo invoke alterando o value')
+        .clear()
+        
+      cy.get('#open-text-area')
+        .invoke('val', longText)
+        .should('have.value', longText)
+
+    });
+
+    it('cy.request() - testes de API', () => {
+      
+      cy.request('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
+        .should((response) => {
+          console.log(response)
+          const {status, statusText, body} = response
+          expect(status).to.equal(200)
+          expect(statusText).to.equal('OK')
+          expect(body).to.include('CAC TAT')
+        })
+
+    });
+
+});
+
+describe.only('Último Exercício', () => {
+
+  beforeEach(() => {
+
+    cy.visit('./src/index.html')
+
+  });
+
+  it('Encontre o Gato', () => {
+    
+    cy.get('#cat')
+      .invoke('show')
+      .should('be.visible')
+
+    cy.get('#title')
+      .invoke('text', 'CAT TAT')
+      .should('have.text', 'CAT TAT')
+
+  });
+
+});
